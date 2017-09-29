@@ -1,18 +1,20 @@
 package com.company;
 
-import java.util.Arrays;
-import java.util.Comparator;
 import java.util.Scanner;
 
 public class Main {
 
     public static void sort(String[] args) {
-        Arrays.sort(args, new Comparator<String>() {
-            @Override
-            public int compare(String o1, String o2) {
-                return o1.compareTo(o2);
+        for (int i = 0; i < args.length; i++) {
+            int k = i;
+            for (int j = i; j < args.length; j++) {
+                if (args[j].compareTo(args[k]) < 0) {
+                    String temp = args[j];
+                    args[j] = args[k];
+                    args[k] = temp;
+                }
             }
-        });
+        }
     }
 
 
